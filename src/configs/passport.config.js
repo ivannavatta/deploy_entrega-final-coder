@@ -12,6 +12,7 @@ const User = require('../DAO/mongo/models/user.model')
 const { generateToken } = require('../utils/jwt.util')
 const NewTokenDto = require('../DTOs/new-token.dto')
 const loggerFactory = require('../factory/logger.factory')
+const { baseUrl } = require('./app.config')
 
 const LocalStrategy = local.Strategy
 const JWTStrategy = jwt.Strategy
@@ -83,7 +84,7 @@ const initializePassport = () => {
     passport.use('github', new GithubStrategy(
         {clientID: ghClientID,
         clientSecret: ghClientSecret,
-        callbackURL: 'http://localhost:3001/auth/githubcallback'},
+        callbackURL: `${baseUrl}/auth/githubcallback`},
         async (accessToken, RefreshToken, profile, done) => {
             try {
                 const { id, login, name, email } = profile._json

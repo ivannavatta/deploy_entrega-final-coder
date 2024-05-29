@@ -1,3 +1,4 @@
+const { baseUrl } = require("../configs/app.config");
 const { email } = require("../configs/services.config");
 const loggerFactory = require("../factory/logger.factory");
 const transport = require("../utils/nodeMailer.util");
@@ -33,7 +34,7 @@ class MessageManager{
         We have received a request to reset the password associated with your account. If you did not make this request, please disregard this email. Otherwise, please use the following link to reset your password:
 
         <div>
-        <a href="http://localhost:3001/restart-password" style="display: inline-block; background-color: #007bff; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Password Reset Link</a>
+        <a href="${baseUrl}/restart-password" style="display: inline-block; background-color: #007bff; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Password Reset Link</a>
         </div>
 
         This link will expire in <b> 1 hour </b>. If you encounter any issues or need further assistance, please don't hesitate to contact our support team.

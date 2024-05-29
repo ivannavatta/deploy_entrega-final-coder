@@ -2,6 +2,7 @@ require('dotenv').config()
 
 module.exports = {
     port: process.env.PORT,
+    baseUrl: process.env.BASE_URL,
     dbUser: process.env.DB_USER,
     dbPassword: process.env.DB_PASSWORD,
     dbName: process.env.DB_NAME,

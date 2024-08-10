@@ -12,12 +12,6 @@ const logger = require('./middlewares/logger.middleware');
 const loggerFactory = require('./factory/logger.factory');
 const swaggerJSDoc = require('swagger-jsdoc');
 const swaggerUiExpress = require('swagger-ui-express')
-const { fileURLToPath } = require('url');
-const { dirname } = require('path');
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
 
 
 const app = express()
@@ -27,7 +21,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.engine('handlebars', handlebars.engine())
 app.set('views', process.cwd() + '/src/views')
-app.use(express.static(__dirname + '/src/public'));
+app.use(express.static(__dirname + '/public'));
 app.use(cookieParser())
 initializePassport()
 app.use(passport.initialize())
